@@ -1,0 +1,53 @@
+body {
+    
+    font-family: sans-serif;
+    background-color: lightgray;
+    
+}
+
+hr {
+    
+    border-top: 1px solid darkgrey;
+    border-bottom: none;    
+    
+}
+
+.timeDisplay {
+    
+    font-weight: bold;
+    display: none;
+    
+}
+
+#shape {
+    
+    height: 100px;
+    width: 100px;
+    position: relative;
+    
+}
+
+#page-wrapper {
+    
+    margin: 0 auto;
+    max-width: 600px;
+    
+}
+
+#recentTimeDisplay {
+    
+    float: left;
+    
+}
+
+#averageTimeDisplay {
+    
+    float: right;
+    
+}
+
+.clear-float {
+    
+    clear: both;
+    
+}
