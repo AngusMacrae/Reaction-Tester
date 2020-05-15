@@ -1,15 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     
     font-family: sans-serif;
     background-color: lightgray;
+    margin: 0;
     
 }
 
 hr {
     
-    border-top: 1px solid darkgrey;
+    border-top: 1px solid #a2a2a2;
     border-bottom: none;    
+    width: 100%;
     
+}
+
+#page-wrapper {
+    
+    margin: 0 auto;
+    max-width: 600px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#container {
+    
+    position: relative;
+    flex: 1;
+    
+}
+
+.times {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid darkgrey;
 }
 
 .timeDisplay {
@@ -23,31 +52,7 @@ hr {
     
     height: 100px;
     width: 100px;
-    position: relative;
+    position: absolute;
     
 }
 
-#page-wrapper {
-    
-    margin: 0 auto;
-    max-width: 600px;
-    
-}
-
-#recentTimeDisplay {
-    
-    float: left;
-    
-}
-
-#averageTimeDisplay {
-    
-    float: right;
-    
-}
-
-.clear-float {
-    
-    clear: both;
-    
-}

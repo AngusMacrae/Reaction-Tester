@@ -1,14 +1,14 @@
-colorValues = ["Red", "Yellow", "Green", "Blue", "Purple", "Pink", "Black", "Orange"];
-
 let startTime;
 let endTime;
 let times = [];
+let colorValues = ["Red", "Yellow", "Green", "Blue", "Purple", "Pink", "Black", "Orange"];
 
-recentTimeDisplay = document.getElementById("recentTimeDisplay");
-averageTimeDisplay = document.getElementById("averageTimeDisplay");
-shape = document.getElementById("shape");
+let recentTimeDisplay = document.getElementById("recentTimeDisplay");
+let averageTimeDisplay = document.getElementById("averageTimeDisplay");
+let shape = document.getElementById("shape");
+let container = document.getElementById("container");
 
-shape.onclick = hideShape;
+shape.addEventListener("click", hideShape);
 
 randomCountdown(displayShape);
 
@@ -30,15 +30,15 @@ function hideShape() {
 function displayShape() {
 
     shape.style.backgroundColor = randomArrayElement(colorValues);
-    if (Math.random() > 0.5) {
-        shape.style.borderRadius = "0";
-    } else {
-        shape.style.borderRadius = "50%";
-    }
-    shape.style.height = randomIntInc(70, 200) + "px";
-    shape.style.width = randomIntInc(70, 200) + "px";
-    shape.style.top = randomIntInc(0, 300) + "px";
-    shape.style.left = randomIntInc(0, 250) + "px";
+    shape.style.borderRadius = (Math.random() > 0.5) ? "0" : "50%";
+    let shapeWidth = randomIntInc(50, 200);
+    let shapeHeight = randomIntInc(50, 200);
+    shape.style.width = shapeWidth + "px";
+    shape.style.height = shapeHeight + "px";
+    let maxLeft = container.offsetWidth - shapeWidth;
+    let maxTop = container.offsetHeight - shapeHeight;
+    shape.style.left = randomIntInc(0, maxLeft) + "px";
+    shape.style.top = randomIntInc(0, maxTop) + "px";
     shape.style.display = "block";
     startTime = new Date();
 
@@ -50,7 +50,7 @@ function updateTimeDisplay(startTime, endTime) {
     recentTimeDisplay.innerHTML = "Most recent time: " + timeDiff + " s";
     times.push(timeDiff);
     averageTimeDisplay.innerHTML = "Average time: " + (Math.round(averageArrayElements(times) * 1000) / 1000) + " s";
-    console.log(timeDiff);
+    console.log("Reaction time: " + timeDiff + " s");
     recentTimeDisplay.style.display = "block";
     averageTimeDisplay.style.display = "block";
 
